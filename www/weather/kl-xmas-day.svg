@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 990 250" preserveAspectRatio="xMidYMax slice">
+  <defs></defs>
+  <style>
+    @media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
+  <g transform="scale(1,1.25)">
+    
+    <g transform="translate(-40,0)"><path d="M542 160 L548.5 171 L545.5 171 L551 181 L547 181 L553 193 L531 193 L537 181 L533 181 L538.5 171 L535.5 171Z" fill="#2f6b3a"/><path d="M542 155.5 l1.1 2.4 l2.6 .2 l-2 1.7 l.7 2.5 l-2.4 -1.4 l-2.4 1.4 l.7 -2.5 l-2 -1.7 l2.6 -.2Z" fill="#ffd34d"/><rect x="540.5" y="193" width="3" height="5" fill="#5a3b26"/><circle cx="539" cy="169" r=".9" fill="#d8263a"/><circle cx="545" cy="170" r=".9" fill="#e8b923"/><circle cx="537" cy="179" r=".9" fill="#d8263a"/><circle cx="542" cy="177" r=".9" fill="#e8b923"/><circle cx="547" cy="179" r=".9" fill="#d8263a"/><circle cx="535" cy="189" r=".9" fill="#e8b923"/><circle cx="540" cy="186" r=".9" fill="#d8263a"/><circle cx="545" cy="188" r=".9" fill="#e8b923"/><circle cx="549" cy="190" r=".9" fill="#d8263a"/></g>
+    <g transform="translate(-100,0)"></g>
+  </g>
+</svg>

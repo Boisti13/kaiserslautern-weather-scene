@@ -1,0 +1,111 @@
+###############################################################################
+# Weather scene – the Kaiserslautern weather card's sensors
+# Repository: https://github.com/Boisti13/kaiserslautern-weather-scene
+# Needs: sun.sun, weather.forecast_home (met.no), an outdoor temperature
+# sensor (sensor.virtual_outdoor_temperature, for snow cover), and
+# custom_templates/overview_sky.jinja from the same repository.
+# - sensor.overview_sky: the scene the weather card paints behind and over
+#   the Kaiserslautern skyline (/local/weather/, art made by
+#   art/build.py in the repository; the view looks south, east on the left).
+#   State = sky gradient: clear, partly, cloudy, fog, rain, storm, snow by
+#   day; twilight / twilight-grey; night / night-grey. Attributes:
+#   time (day/twilight/night: sun below 6° / -6°), weather (clear, partly,
+#   cloudy, fog, rain, pour, hail, sleet, snow, lightning, storm; kept while
+#   weather.forecast_home is unavailable, e.g. without internet), windy (clouds
+#   faster), drift (-3..3, wind across the view: rain/snow slant, cloud
+#   direction), moon (phase 0-7), moon_x/moon_y/moon_up (position from
+#   phase and time), sun_x/sun_y/sun_elev (from sun.sun), lights (lit
+#   windows), snow_cover (snowing, or snowed and still below 2 °C),
+#   season (trees), xmas (Monday after
+#   Totensonntag to 6 January), kickoff/match (FCK home game, 90 min before
+#   to 150 min after kickoff: floodlights, flags, crest).
+#   Macros in custom_templates/overview_sky.jinja.
+# - sensor.fck_next_home_match: next unfinished 1. FC Kaiserslautern home
+#   match (1./2. Bundesliga, DFB-Pokal) from OpenLigaDB (team 76), every 3 h.
+###############################################################################
+
+template:
+  - sensor:
+      - name: "Overview sky"
+        unique_id: overview_sky
+        icon: mdi:weather-partly-cloudy
+        state: >
+          {% from 'overview_sky.jinja' import sky_time, sky_weather %}
+          {% set t = sky_time() | trim %}
+          {% set w = sky_weather(this.attributes.weather | default('cloudy')) | trim %}
+          {% set grey = w not in ['clear', 'partly'] %}
+          {% if t != 'day' %}{{ t ~ ('-grey' if grey else '') }}
+          {% else %}{{ {'pour': 'rain', 'hail': 'rain', 'sleet': 'snow', 'lightning': 'storm'}.get(w, w) }}{% endif %}
+        attributes:
+          time: >
+            {% from 'overview_sky.jinja' import sky_time %}
+            {{ sky_time() | trim }}
+          weather: >
+            {% from 'overview_sky.jinja' import sky_weather %}
+            {{ sky_weather(this.attributes.weather | default('cloudy')) | trim }}
+          windy: >
+            {{ states('weather.forecast_home') in ['windy', 'windy-variant']
+               or state_attr('weather.forecast_home', 'wind_speed') | float(0) > 30 }}
+          moon: >
+            {# phase in eighths since the new moon of 2000-01-06 18:14 UTC #}
+            {% set p = ((now().timestamp() - 947182440) / 86400 % 29.530588853) / 29.530588853 %}
+            {{ (p * 8) | round(0) | int % 8 }}
+          drift: >
+            {% from 'overview_sky.jinja' import sky_drift %}
+            {{ sky_drift(this.attributes.drift | default(0)) | trim | int(0) }}
+          sun_elev: "{{ state_attr('sun.sun', 'elevation') | float(0) | round(1) }}"
+          sun_x: "{{ (((state_attr('sun.sun', 'azimuth') | float(180)) - 90) / 180) | round(3) }}"
+          sun_y: >
+            {% set e = state_attr('sun.sun', 'elevation') | float(0) %}
+            {{ ([[0.72 - e / 65 * 0.6, 0.1] | max, 0.8] | min) | round(3) }}
+          moon_x: >
+            {% from 'overview_sky.jinja' import moon_diff %}
+            {{ (0.5 + (moon_diff() | float) / 12) | round(3) }}
+          moon_y: >
+            {% from 'overview_sky.jinja' import moon_diff %}
+            {{ (0.72 - sin(pi * ((moon_diff() | float) + 6) / 12) * 0.55) | round(3) }}
+          moon_up: >
+            {% from 'overview_sky.jinja' import moon_diff %}
+            {{ (moon_diff() | float) | abs < 6.2 }}
+          snow_cover: >
+            {% from 'overview_sky.jinja' import sky_weather %}
+            {% set w = sky_weather(this.attributes.weather | default('cloudy')) | trim %}
+            {{ w in ['snow', 'sleet']
+               or (this.attributes.snow_cover | default(false)
+                   and states('sensor.virtual_outdoor_temperature') | float(0) < 2) }}
+          season: >
+            {% from 'overview_sky.jinja' import sky_season %}
+            {{ sky_season() | trim }}
+          xmas: >
+            {% from 'overview_sky.jinja' import sky_xmas %}
+            {{ sky_xmas() | trim }}
+          kickoff: >
+            {% from 'overview_sky.jinja' import fck_kickoff %}
+            {{ fck_kickoff(this.attributes.kickoff | default('')) | trim }}
+          match: >
+            {% from 'overview_sky.jinja' import fck_kickoff %}
+            {% set k = fck_kickoff(this.attributes.kickoff | default('')) | trim | as_datetime(none) %}
+            {{ k is not none and -5400 <= (now() - k).total_seconds() <= 9000 }}
+          lights: >
+            {% from 'overview_sky.jinja' import sky_time, sky_weather %}
+            {% set t = sky_time() | trim %}
+            {% set w = sky_weather(this.attributes.weather | default('cloudy')) | trim %}
+            {{ t != 'day' or w in ['storm', 'lightning']
+               or (state_attr('sun.sun', 'elevation') | float(10) < 15
+                   and w not in ['clear', 'partly']) }}
+
+rest:
+  - resource: https://api.openligadb.de/getmatchesbyteamid/76/1/4
+    scan_interval: 10800
+    sensor:
+      - name: "FCK next home match"
+        unique_id: fck_next_home_match
+        icon: mdi:soccer-field
+        device_class: timestamp
+        value_template: >
+          {% set ms = value_json
+             | selectattr('team1.teamId', 'eq', 76)
+             | selectattr('leagueShortcut', 'in', ['bl1', 'bl2', 'dfb'])
+             | rejectattr('matchIsFinished')
+             | map(attribute='matchDateTimeUTC') | sort | list %}
+          {{ ms[0] if ms else none }}

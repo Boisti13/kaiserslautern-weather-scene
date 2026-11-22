@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice">
+  <style>
+    .a{animation:flash 9s linear infinite}
+    .b{animation:flash 13s linear infinite;animation-delay:-5s}
+    @keyframes flash{0%,70%{opacity:0}70.5%{opacity:.9}71.5%{opacity:.15}72.5%{opacity:.75}74%,100%{opacity:0}}
+    @media (prefers-reduced-motion: reduce){*{animation:none!important}}
+    @media (prefers-reduced-motion: reduce){.a,.b{opacity:0}}
+  </style>
+  <rect class="a" width="600" height="200" fill="#dfe6ff" fill-opacity=".45"/>
+  <rect class="b" width="600" height="200" fill="#e8ecff" fill-opacity=".35"/>
+  <path class="a" d="M372 0 L360 38 L370 40 L352 82 L363 84 L344 132" fill="none" stroke="#f4f6ff" stroke-width="2.2" stroke-linejoin="round"/>
+  <path class="a" d="M360 38 L346 58" fill="none" stroke="#f4f6ff" stroke-width="1.2"/>
+  <path class="b" d="M138 0 L148 30 L138 33 L152 70 L142 72 L156 112" fill="none" stroke="#f4f6ff" stroke-width="1.8" stroke-linejoin="round"/>
+</svg>

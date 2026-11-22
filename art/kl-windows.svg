@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 990 250" preserveAspectRatio="xMidYMax slice">
+  <!-- Lit windows for kl-skyline.svg (same viewBox and shifts), shown by the Overview weather card
+       none below y 172 (behind the chip row);
+       only while sensor.overview_sky is night, twilight or storm (2026-11-04). -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.6"/></filter>
+    <filter id="halo" x="-300%" y="-300%" width="700%" height="700%"><feGaussianBlur stdDeviation="5"/></filter>
+  </defs>
+  <g transform="scale(1,1.25)">
+  <!-- houses, theatre, Rathaus: soft glow under sharp windows -->
+  <g fill="#ffb84d" opacity=".55" filter="url(#glow)">
+    <rect transform="translate(-40,0)" x="553.0" y="44.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="44.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="44.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="44.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="553.0" y="52.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="52.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="52.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="52.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="60.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="572.8" y="60.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="60.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="68.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="76.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="76.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="553.0" y="84.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="553.0" y="92.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="572.8" y="92.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="92.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="92.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="100.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="572.8" y="100.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="100.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="100.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="553.0" y="108.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="559.6" y="108.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="108.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="108.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="559.6" y="116.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="116.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="116.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="553.0" y="124.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="124.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="124.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="559.6" y="132.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="132.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="140.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="140.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="140.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="140.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="559.6" y="148.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="148.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="572.8" y="148.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="553.0" y="156.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="156.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="572.8" y="156.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="156.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="156.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="553.0" y="164.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="559.6" y="164.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="572.8" y="164.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="164.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="462.0" y="168.0" width="4" height="4"/>
+    <rect transform="translate(-40,0)" x="469.0" y="168.0" width="4" height="4"/>
+    <rect transform="translate(-40,0)" x="476.0" y="168.0" width="4" height="4"/>
+    <rect transform="translate(-40,0)" x="483.0" y="168.0" width="4" height="4"/>
+    <rect transform="translate(-40,0)" x="504.0" y="168.0" width="4" height="4"/>
+    <rect transform="translate(-40,0)" x="518.0" y="168.0" width="4" height="4"/>
+    <rect transform="translate(-40,0)" x="525.0" y="168.0" width="4" height="4"/>
+    <rect transform="translate(-40,0)" x="484.0" y="155.0" width="4" height="3"/>
+    <rect transform="translate(-40,0)" x="492.0" y="155.0" width="4" height="3"/>
+    <rect transform="translate(-40,0)" x="500.0" y="155.0" width="4" height="3"/>
+    <rect transform="translate(-40,0)" x="508.0" y="155.0" width="4" height="3"/>
+    <rect transform="translate(-40,0)" x="610.0" y="166.0" width="3.5" height="3.5"/>
+    <rect transform="translate(-40,0)" x="617.0" y="166.0" width="3.5" height="3.5"/>
+    <rect transform="translate(-40,0)" x="624.0" y="166.0" width="3.5" height="3.5"/>
+    <rect transform="translate(-40,0)" x="638.0" y="166.0" width="3.5" height="3.5"/>
+    <rect transform="translate(-40,0)" x="652.0" y="166.0" width="3.5" height="3.5"/>
+    <rect transform="translate(-40,0)" x="659.0" y="166.0" width="3.5" height="3.5"/>
+    <rect transform="translate(-40,0)" x="673.0" y="166.0" width="3.5" height="3.5"/>
+  </g>
+  <g fill="#ffd98a">
+    <rect transform="translate(-40,0)" x="553.0" y="44.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="44.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="44.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="44.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="553.0" y="52.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="52.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="52.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="52.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="60.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="572.8" y="60.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="60.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="68.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="76.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="76.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="553.0" y="84.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="553.0" y="92.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="572.8" y="92.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="92.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="92.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="100.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="572.8" y="100.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="100.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="100.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="553.0" y="108.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="559.6" y="108.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="108.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="108.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="559.6" y="116.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="116.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="116.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="553.0" y="124.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="124.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="124.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="559.6" y="132.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="132.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="140.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="140.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="140.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="140.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="559.6" y="148.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="148.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="572.8" y="148.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="553.0" y="156.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="566.2" y="156.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="572.8" y="156.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="579.4" y="156.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="592.6" y="156.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="553.0" y="164.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="559.6" y="164.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="572.8" y="164.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="586.0" y="164.0" width="3.4" height="3.6"/>
+    <rect transform="translate(-40,0)" x="462.0" y="168.0" width="4" height="4"/>
+    <rect transform="translate(-40,0)" x="469.0" y="168.0" width="4" height="4"/>
+    <rect transform="translate(-40,0)" x="476.0" y="168.0" width="4" height="4"/>
+    <rect transform="translate(-40,0)" x="483.0" y="168.0" width="4" height="4"/>
+    <rect transform="translate(-40,0)" x="504.0" y="168.0" width="4" height="4"/>
+    <rect transform="translate(-40,0)" x="518.0" y="168.0" width="4" height="4"/>
+    <rect transform="translate(-40,0)" x="525.0" y="168.0" width="4" height="4"/>
+    <rect transform="translate(-40,0)" x="484.0" y="155.0" width="4" height="3"/>
+    <rect transform="translate(-40,0)" x="492.0" y="155.0" width="4" height="3"/>
+    <rect transform="translate(-40,0)" x="500.0" y="155.0" width="4" height="3"/>
+    <rect transform="translate(-40,0)" x="508.0" y="155.0" width="4" height="3"/>
+    <rect transform="translate(-40,0)" x="610.0" y="166.0" width="3.5" height="3.5"/>
+    <rect transform="translate(-40,0)" x="617.0" y="166.0" width="3.5" height="3.5"/>
+    <rect transform="translate(-40,0)" x="624.0" y="166.0" width="3.5" height="3.5"/>
+    <rect transform="translate(-40,0)" x="638.0" y="166.0" width="3.5" height="3.5"/>
+    <rect transform="translate(-40,0)" x="652.0" y="166.0" width="3.5" height="3.5"/>
+    <rect transform="translate(-40,0)" x="659.0" y="166.0" width="3.5" height="3.5"/>
+    <rect transform="translate(-40,0)" x="673.0" y="166.0" width="3.5" height="3.5"/>
+  </g>
+  <!-- church windows (2026-11-22: large arched nave and tower windows, rose windows), warm amber -->
+  <g transform="translate(-40,0)">
+    <path d="M383 157.5 a2.5 2.5 0 0 1 5 0 V172 H383Z M395 154.5 a2.5 2.5 0 0 1 5 0 V172 H395Z M407 157.5 a2.5 2.5 0 0 1 5 0 V172 H407Z M416.6 119 a3.4 3.4 0 1 0 6.8 0 a3.4 3.4 0 1 0 -6.8 0Z M417.5 134.5 a2.5 2.5 0 0 1 5 0 V150 H417.5Z M707.4 108 a3.6 3.6 0 1 0 7.2 0 a3.6 3.6 0 1 0 -7.2 0Z M731 160.5 a2.5 2.5 0 0 1 5 0 V173 H731Z M745 156.5 a2.5 2.5 0 0 1 5 0 V173 H745Z M759 156.5 a2.5 2.5 0 0 1 5 0 V173 H759Z M773 160.5 a2.5 2.5 0 0 1 5 0 V173 H773Z M748 141 a4 4 0 1 0 8 0 a4 4 0 1 0 -8 0Z M865 162.5 a2.5 2.5 0 0 1 5 0 V174 H865Z M885 162.5 a2.5 2.5 0 0 1 5 0 V174 H885Z M875.4 148.5 a2.6 2.6 0 1 0 5.2 0 a2.6 2.6 0 1 0 -5.2 0Z" fill="#e89a3c" opacity=".55" filter="url(#glow)"/>
+    <path d="M383 157.5 a2.5 2.5 0 0 1 5 0 V172 H383Z M395 154.5 a2.5 2.5 0 0 1 5 0 V172 H395Z M407 157.5 a2.5 2.5 0 0 1 5 0 V172 H407Z M416.6 119 a3.4 3.4 0 1 0 6.8 0 a3.4 3.4 0 1 0 -6.8 0Z M417.5 134.5 a2.5 2.5 0 0 1 5 0 V150 H417.5Z M707.4 108 a3.6 3.6 0 1 0 7.2 0 a3.6 3.6 0 1 0 -7.2 0Z M731 160.5 a2.5 2.5 0 0 1 5 0 V173 H731Z M745 156.5 a2.5 2.5 0 0 1 5 0 V173 H745Z M759 156.5 a2.5 2.5 0 0 1 5 0 V173 H759Z M773 160.5 a2.5 2.5 0 0 1 5 0 V173 H773Z M748 141 a4 4 0 1 0 8 0 a4 4 0 1 0 -8 0Z M865 162.5 a2.5 2.5 0 0 1 5 0 V174 H865Z M885 162.5 a2.5 2.5 0 0 1 5 0 V174 H885Z M875.4 148.5 a2.6 2.6 0 1 0 5.2 0 a2.6 2.6 0 1 0 -5.2 0Z" fill="#f0a848" opacity=".85"/>
+    <path d="M795 170 h3 v4 h-3Z M813 170 h3 v4 h-3Z M829 170 h3 v4 h-3Z M909 174 h3 v4 h-3Z M921 164 h3 v4 h-3Z M946 174 h3 v4 h-3Z" fill="#ffb84d" opacity=".55" filter="url(#glow)"/>
+    <path d="M795 170 h3 v4 h-3Z M813 170 h3 v4 h-3Z M829 170 h3 v4 h-3Z M909 174 h3 v4 h-3Z M921 164 h3 v4 h-3Z M946 174 h3 v4 h-3Z" fill="#ffd27a"/>
+  </g>
+  <!-- stadium floodlights: only on FCK match days, in kl-match-*.svg (2026-11-22) -->
+  <!-- Humbergturm lantern, aviation lights on Rathaus and TV tower -->
+  <rect transform="translate(-100,0)" x="1055" y="94" width="4" height="6" fill="#ffd98a"/>
+  <!-- aviation lights (2026-11-22: bigger, blinking; second light on the TV mast) -->
+  <style>.av{animation:av 1.6s steps(1) infinite}.av2{animation-delay:-.8s}
+    @keyframes av{0%{opacity:1}55%{opacity:.25}}
+    @media (prefers-reduced-motion: reduce){.av{animation:none}}</style>
+  <g fill="#ff3b30">
+    <g class="av"><circle transform="translate(-40,0)" cx="577" cy="5" r="6" opacity=".7" filter="url(#halo)"/><circle transform="translate(-40,0)" cx="577" cy="5" r="2"/></g>
+    <g class="av"><circle transform="translate(-160,0)" cx="1155.8" cy="19" r="7" opacity=".8" filter="url(#halo)"/><circle transform="translate(-160,0)" cx="1155.8" cy="19" r="2.4"/></g>
+    <g class="av av2"><circle transform="translate(-160,0)" cx="1155.6" cy="41" r="5" opacity=".6" filter="url(#halo)"/><circle transform="translate(-160,0)" cx="1155.6" cy="41" r="1.7"/></g>
+  </g>
+  </g>
+</svg>

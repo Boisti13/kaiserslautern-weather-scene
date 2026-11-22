@@ -1,0 +1,28 @@
+name: Check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install pyyaml ruff
+      - name: Lint
+        run: ruff check art scripts
+      - name: Pictures are up to date
+        run: |
+          python3 art/build.py /tmp/weather
+          diff -r /tmp/weather www/weather
+      - name: Card is up to date
+        run: python3 scripts/card.py --check
+      - name: Gallery builds
+        run: python3 art/gallery.py
+      - name: No backticks in the layer code
+        run: "! grep -n '`' card/layers.js"

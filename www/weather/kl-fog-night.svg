@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" preserveAspectRatio="xMidYMax slice">
+  <defs><radialGradient id="m"><stop offset="0" stop-color="#8592a8" stop-opacity="0.35"/>
+  <stop offset="1" stop-color="#8592a8" stop-opacity="0"/></radialGradient>
+  <linearGradient id="v" x1="0" y1="0" x2="0" y2="1"><stop offset=".35" stop-color="#8592a8" stop-opacity="0"/>
+  <stop offset="1" stop-color="#8592a8" stop-opacity="0.27999999999999997"/></linearGradient></defs>
+  <style>
+    .a{animation:drift 80s linear infinite}
+    .b{animation:drift 130s linear infinite reverse}
+    @keyframes drift{to{transform:translateX(600px)}}
+    @media (prefers-reduced-motion: reduce){*{animation:none!important}}
+  </style>
+  <rect width="600" height="200" fill="url(#v)"/>
+  <g class="a" fill="url(#m)"><ellipse cx="374" cy="151" rx="220" ry="19"/><ellipse cx="444" cy="161" rx="143" ry="15"/><ellipse cx="566" cy="146" rx="230" ry="11"/><ellipse cx="281" cy="124" rx="194" ry="16"/><ellipse cx="8" cy="122" rx="168" ry="19"/><ellipse cx="459" cy="119" rx="220" ry="11"/><ellipse cx="370" cy="117" rx="140" ry="19"/><g transform="translate(-600,0)"><ellipse cx="374" cy="151" rx="220" ry="19"/><ellipse cx="444" cy="161" rx="143" ry="15"/><ellipse cx="566" cy="146" rx="230" ry="11"/><ellipse cx="281" cy="124" rx="194" ry="16"/><ellipse cx="8" cy="122" rx="168" ry="19"/><ellipse cx="459" cy="119" rx="220" ry="11"/><ellipse cx="370" cy="117" rx="140" ry="19"/></g></g>
+  <g class="b" fill="url(#m)"><ellipse cx="126" cy="161" rx="238" ry="19"/><ellipse cx="174" cy="198" rx="194" ry="17"/><ellipse cx="123" cy="197" rx="209" ry="20"/><ellipse cx="536" cy="165" rx="176" ry="12"/><ellipse cx="87" cy="153" rx="170" ry="16"/><ellipse cx="2" cy="184" rx="174" ry="13"/><ellipse cx="491" cy="174" rx="172" ry="15"/><g transform="translate(-600,0)"><ellipse cx="126" cy="161" rx="238" ry="19"/><ellipse cx="174" cy="198" rx="194" ry="17"/><ellipse cx="123" cy="197" rx="209" ry="20"/><ellipse cx="536" cy="165" rx="176" ry="12"/><ellipse cx="87" cy="153" rx="170" ry="16"/><ellipse cx="2" cy="184" rx="174" ry="13"/><ellipse cx="491" cy="174" rx="172" ry="15"/></g></g>
+</svg>

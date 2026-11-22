@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs><radialGradient id="g"><stop offset="0" stop-color="#ffd08a" stop-opacity=".8"/>
+  <stop offset=".35" stop-color="#ff9a3c" stop-opacity=".35"/><stop offset="1" stop-color="#ff9a3c" stop-opacity="0"/></radialGradient></defs>
+  <style>
+    .glow{transform-origin:60px 60px;animation:pulse 6s ease-in-out infinite}
+    .rays{transform-origin:60px 60px;animation:spin 90s linear infinite}
+    @keyframes pulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.1);opacity:1}}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @media (prefers-reduced-motion: reduce){*{animation:none!important}}
+  </style>
+  <circle class="glow" cx="60" cy="60" r="58" fill="url(#g)"/>
+  
+  <circle cx="60" cy="60" r="15" fill="#ffd08a"/>
+  <circle cx="60" cy="60" r="12.5" fill="#ffb35c"/>
+</svg>

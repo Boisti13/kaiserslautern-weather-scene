@@ -1,0 +1,77 @@
+{
+  "type": "custom:vertical-stack-in-card",
+  "grid_options": {
+    "columns": 12
+  },
+  "cards": [
+    {
+      "type": "custom:bubble-card",
+      "card_type": "button",
+      "button_type": "state",
+      "entity": "sensor.virtual_outdoor_temperature",
+      "card_layout": "large",
+      "force_icon": true,
+      "name": "{% set s = states('weather.forecast_home') %}Outside{{ ' · ' ~ s.replace('partlycloudy', 'partly cloudy').replace('-', ' ') | capitalize if s not in ['unavailable', 'unknown'] }}",
+      "icon": "{% set s = states('weather.forecast_home') %}{{ 'mdi:weather-' ~ {'partlycloudy': 'partly-cloudy', 'clear-night': 'night', 'exceptional': 'cloudy-alert'}.get(s, s) if s not in ['unavailable', 'unknown'] else 'mdi:weather-cloudy-alert' }}",
+      "tap_action": {
+        "action": "navigate",
+        "navigation_path": "#outside"
+      },
+      "button_action": {
+        "tap_action": {
+          "action": "navigate",
+          "navigation_path": "#outside"
+        }
+      },
+      "sub_button": {
+        "bottom": [
+          {
+            "group": [
+              {
+                "entity": "sensor.virtual_outdoor_humidity",
+                "icon": "mdi:water-percent",
+                "state_content": "state",
+                "show_background": false,
+                "fill_width": false
+              },
+              {
+                "entity": "sensor.virtual_outdoor_pressure",
+                "show_state": true,
+                "show_background": false,
+                "fill_width": false
+              },
+              {
+                "entity": "sensor.virtual_outdoor_temperature_24h_min",
+                "icon": "mdi:arrow-down-thin",
+                "show_state": true,
+                "show_background": false,
+                "fill_width": false
+              },
+              {
+                "entity": "sensor.virtual_outdoor_temperature_24h_max",
+                "icon": "mdi:arrow-up-thin",
+                "show_state": true,
+                "show_background": false,
+                "fill_width": false
+              }
+            ],
+            "buttons_layout": "inline",
+            "justify_content": "start"
+          }
+        ]
+      },
+      "styles": ".bubble-button-card-container {\n  --sky-night: linear-gradient(180deg, #0b1430, #1d2b55 70%, #3a4a78);\n  --sky-night-grey: linear-gradient(180deg, #141a27, #262e40 70%, #3c4458);\n  --sky-twilight: linear-gradient(180deg, #2b3a6b, #b0627a 65%, #f0a868);\n  --sky-twilight-grey: linear-gradient(180deg, #3a4060, #7a6878 65%, #a88f88);\n  --sky-clear: linear-gradient(180deg, #2f7fc8, #79b8e8 70%, #c4e2f6);\n  --sky-partly: linear-gradient(180deg, #4f86b8, #97bad8 70%, #cfdde9);\n  --sky-cloudy: linear-gradient(180deg, #66778a, #9eabb8 75%, #c1cad3);\n  --sky-fog: linear-gradient(180deg, #8f99a3, #b9c0c7 70%, #d5dadf);\n  --sky-rain: linear-gradient(180deg, #3f4c5a, #6f7d8b 75%, #8e9aa6);\n  --sky-storm: linear-gradient(180deg, #23283a, #48506a 70%, #6a6f86);\n  --sky-snow: linear-gradient(180deg, #8a9bb0, #c3cfdc 70%, #e8eef4);\n  background: ${__LAYERS__} !important;\n  border-radius: var(--ha-card-border-radius, 12px) var(--ha-card-border-radius, 12px) 0 0 !important;\n}\n.bubble-name, .bubble-state, .bubble-sub-button { color: #fff !important; text-shadow: 0 1px 3px rgba(0, 0, 0, .55), 0 0 10px rgba(0, 0, 0, .25); }\n.bubble-content-container { margin-top: 22px !important; }\n.bubble-sub-button { font-size: 13px !important; }\n.bubble-sub-button-bottom-container { padding-inline-start: 6px !important; padding-bottom: 4px !important; }\n.bubble-name-container { line-height: normal !important; overflow: visible !important; gap: 4px; margin-inline: 14px 16px !important; }\n.bubble-name { font-size: 14px !important; font-weight: 600 !important; letter-spacing: .2px; opacity: .92; }\n.bubble-state { font-size: 30px !important; font-weight: 600 !important; line-height: 1.05 !important; opacity: 1 !important; }\n.bubble-icon-container { margin-inline-start: 14px !important; min-width: 48px !important; min-height: 48px !important; }\n.bubble-main-icon-container { background-color: rgba(255, 255, 255, .22) !important; }\n.bubble-main-icon { color: #fff !important; }\n.bubble-sub-button-1 .bubble-sub-button-icon { color: var(--cyan-color) !important; }\n.bubble-sub-button-2 .bubble-sub-button-icon { color: #cfd8dc !important; }\n.bubble-sub-button-3 .bubble-sub-button-icon { color: var(--light-blue-color) !important; }\n.bubble-sub-button-4 .bubble-sub-button-icon { color: var(--orange-color) !important; }\n",
+      "grid_options": {
+        "columns": 12,
+        "rows": 3
+      }
+    },
+    {
+      "type": "weather-forecast",
+      "entity": "weather.forecast_home",
+      "show_current": false,
+      "show_forecast": true,
+      "forecast_type": "daily"
+    }
+  ]
+}

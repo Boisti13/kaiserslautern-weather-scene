@@ -1,0 +1,61 @@
+{# Overview weather card (packages/overview.yaml, sensor.overview_sky). #}
+
+{# Time of day from the sun: night below -6°, twilight below 6°, else day. #}
+{%- macro sky_time() -%}
+{%- set e = state_attr('sun.sun', 'elevation') | float(10) -%}
+{{ 'night' if e < -6 else 'twilight' if e < 6 else 'day' }}
+{%- endmacro %}
+
+{# Weather class for the scene layers, from weather.forecast_home.
+   prev: the value to keep while the forecast is unavailable (night cut). #}
+{%- macro sky_weather(prev) -%}
+{%- set m = {'sunny': 'clear', 'clear-night': 'clear', 'partlycloudy': 'partly',
+             'windy': 'partly', 'windy-variant': 'cloudy', 'cloudy': 'cloudy',
+             'exceptional': 'cloudy', 'fog': 'fog', 'rainy': 'rain', 'pouring': 'pour',
+             'hail': 'hail', 'snowy': 'snow', 'snowy-rainy': 'sleet',
+             'lightning': 'lightning', 'lightning-rainy': 'storm'} -%}
+{{ m.get(states('weather.forecast_home'), prev or 'cloudy') }}
+{%- endmacro %}
+
+{# Wind across the view, which looks south (east on the left): -3..3,
+   negative = rain and clouds move left. prev: kept while the forecast is gone. #}
+{%- macro sky_drift(prev) -%}
+{%- set v = state_attr('weather.forecast_home', 'wind_speed') -%}
+{%- set b = state_attr('weather.forecast_home', 'wind_bearing') -%}
+{%- if v is number and b is number -%}
+{%- set x = sin(b * pi / 180) * v -%}
+{%- set n = 0 if x | abs < 8 else 1 if x | abs < 20 else 2 if x | abs < 35 else 3 -%}
+{{ n if x > 0 else -n }}
+{%- else -%}{{ prev }}{%- endif -%}
+{%- endmacro %}
+
+{# Season for trees and grass: winter from 16 November (bare trees). #}
+{%- macro sky_season() -%}
+{%- set m = now().month -%}
+{%- if m in [3, 4, 5] -%}spring{%- elif m in [6, 7, 8] -%}summer
+{%- elif m in [9, 10] or (m == 11 and now().day <= 15) -%}autumn{%- else -%}winter{%- endif -%}
+{%- endmacro %}
+
+{# Christmas lights: from the Monday after Totensonntag to 6 January. #}
+{%- macro sky_xmas() -%}
+{%- set today = now().date() -%}
+{%- set n20 = today.replace(month=11, day=20) -%}
+{%- set ts = n20 + timedelta(days=(6 - n20.weekday()) % 7) -%}
+{{ (today.month >= 11 and today > ts) or (today.month == 1 and today.day <= 6) }}
+{%- endmacro %}
+
+{# Moon: hours from its transit (-12..12), from the phase; it transits about
+   0.84 h later each day, at local solar noon (12:29 CET) at new moon. #}
+{%- macro moon_diff() -%}
+{%- set p = ((now().timestamp() - 947182440) / 86400 % 29.530588853) / 29.530588853 -%}
+{%- set h = now().hour + now().minute / 60 -%}
+{%- set dst = now().dst().total_seconds() / 3600 -%}
+{%- set tr = (12.48 + dst + p * 24.84) % 24 -%}
+{{ (((h - tr + 36) % 24) - 12) | round(2) }}
+{%- endmacro %}
+
+{# Next FCK home kickoff (sensor.fck_next_home_match), or prev while unknown. #}
+{%- macro fck_kickoff(prev) -%}
+{%- set k = states('sensor.fck_next_home_match') -%}
+{{ k if k | as_datetime(none) is not none else prev }}
+{%- endmacro %}
