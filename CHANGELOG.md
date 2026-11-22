@@ -23,6 +23,8 @@ All notable changes, newest first.
   `scripts/screenshots.js`.
 
 ### Changed
+- The C-17 and the C-5 fly a landing approach: in from the upper left,
+  descending about 5° to the right, with gear and landing light down.
 - The card title shows only the weather ("Cloudy", "Snowy" …) instead of
   "Outside · Cloudy"; without a forecast it shows the last known weather.
 

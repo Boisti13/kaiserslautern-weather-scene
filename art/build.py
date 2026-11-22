@@ -674,7 +674,8 @@ for lvl in range(-3, 4):
 
 # --------------------------------------------------------------------------
 # Aircraft from Ramstein (2026-11-22, refined): a C-17 and a C-5 cross the sky
-# now and then (C-17 every 2 min, C-5 every 3 min; the 19 s and 31 s crossings
+# now and then on approach: in from the upper left, descending about 5 degrees
+# to the right with gear and landing light down (C-17 every 2 min, C-5 every 3 min; the 19 s and 31 s crossings
 # never overlap: both periods are multiples of 60 s and the windows sit apart), both left to right, side views, 1 unit = 1 m (C-17 53 m, C-5 76 m), nose to +x,
 # y down, fuselage axis at 0. Parts are separate shapes, each with a tone.
 # They sit behind the cloud layer; beacon, strobes and nav light by day and night.
@@ -711,7 +712,8 @@ AIRCRAFT = {
         "windows": "M48.9 -2.6 L51.3 -2.4 L52.2 -1.3 L49.3 -1.5Z M47 -2.7 h1.2 v1 h-1.2Z",
         "door": "M44.5 -1.6 h1.2 v2.8 h-1.2Z",
         "lights": {"beacon": (31, -5.3), "belly": (30, 5.0), "strobe": (16.2, -7.5),
-                   "tail": (1.5, -3.6), "nav": (18.4, -3.2)},
+                   "tail": (1.5, -3.6), "nav": (18.4, -3.2), "landing": (46.6, 3.9)},
+        "gear": [(46, 3.4, 5.4, .8), (25.5, 4.6, 6.2, 1.05), (31.5, 4.6, 6.2, 1.05)],
     },
     "c5": {
         "body": ("M75.5 1.2 C75.4 -1.6 74.2 -3.4 71.6 -4.6 C69.5 -5.4 66 -5.5 61 -5.3 "
@@ -732,7 +734,8 @@ AIRCRAFT = {
         "windows": "M71.4 -3.9 L73.8 -3.4 L74.7 -2.3 L71.8 -2.6Z M69.3 -4.1 h1.4 v1 h-1.4Z",
         "door": "M66.5 -2.4 h1.3 v3 h-1.3Z",
         "lights": {"beacon": (44, -6.4), "belly": (43, 5.5), "strobe": (27, -1.8),
-                   "tail": (2.4, -3.7), "nav": (30, -1.3)},
+                   "tail": (2.4, -3.7), "nav": (30, -1.3), "landing": (67.6, 4.5)},
+        "gear": [(67, 4, 6, .9), (36, 5.2, 6.8, 1.15), (42, 5.2, 6.8, 1.15), (48, 5.2, 6.8, 1.15)],
     },
 }
 
@@ -746,6 +749,9 @@ def aircraft(a, pal):
     stab = hexmix(body, "#ffffff", .06)
     out = [f'<path d="{a["fin"]}" fill="{body}"/>', f'<path d="{a["stab"]}" fill="{stab}"/>',
            f'<path d="{a["bullet"]}" fill="{stab}"/>']
+    for gx, y0, y1, r in a["gear"]:  # gear down for landing: leg and wheel
+        out += [f'<rect x="{gx - .3}" y="{y0}" width=".6" height="{y1 - y0}" fill="{eng}"/>',
+                f'<circle cx="{gx}" cy="{y1 + r * .6:.2f}" r="{r}" fill="{dark}"/>']
     out += [f'<path d="{a["pods"]}" fill="{under}"/>', f'<path d="{a["body"]}" fill="{body}"/>',
             f'<path d="{a["belly"]}" fill="{under}"/>', f'<path d="{a["fairing"]}" fill="{body}"/>',
             f'<path d="{a["wing"]}" fill="{stab}"/>',
@@ -766,7 +772,7 @@ def aircraft(a, pal):
                 f'<circle cx="{x}" cy="{y}" r="{r}" fill="{col}"/></g>')
     out += [dot(L["beacon"], "#ff3b30", "bc", .8), dot(L["belly"], "#ff3b30", "bc", .7),
             dot(L["strobe"], "#ffffff", "sb", .8), dot(L["tail"], "#ffffff", "sb", .6),
-            dot(L["nav"], nav, "", .6)]
+            dot(L["nav"], nav, "", .6), dot(L["landing"], "#fffbe6", "", .8)]
     return "".join(out)
 
 
@@ -776,8 +782,8 @@ def planes(pal):
   <style>
     .c17{{animation:c17 120s linear infinite;animation-delay:-100s}}
     .c5{{animation:c5 180s linear infinite;animation-delay:-136s}}
-    @keyframes c17{{0%{{transform:translate(-90px,44px)}}16%{{transform:translate(690px,30px)}}16.01%,100%{{transform:translate(900px,0)}}}}
-    @keyframes c5{{0%{{transform:translate(-130px,62px)}}17%{{transform:translate(700px,50px)}}17.01%,100%{{transform:translate(900px,0)}}}}
+    @keyframes c17{{0%{{transform:translate(-90px,4px) rotate(4.6deg)}}16%{{transform:translate(690px,70px) rotate(4.6deg)}}16.01%,100%{{transform:translate(900px,0)}}}}
+    @keyframes c5{{0%{{transform:translate(-130px,10px) rotate(4.6deg)}}17%{{transform:translate(700px,80px) rotate(4.6deg)}}17.01%,100%{{transform:translate(900px,0)}}}}
     .bc{{animation:bc 1.2s steps(1) infinite}} .sb{{animation:sb 1.5s steps(1) infinite;opacity:0}}
     @keyframes bc{{0%{{opacity:1}}50%{{opacity:.15}}}}
     @keyframes sb{{0%{{opacity:1}}8%{{opacity:0}}}}

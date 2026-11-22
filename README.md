@@ -29,7 +29,7 @@ template sensor up to date.
 - **Seasons**: blossom in spring, green summer, autumn colours, bare trees in winter
 - **Christmas**: a decorated tree and string lights from the Monday after Totensonntag to 6 January
 - **Match days**: around a home game of 1. FC Kaiserslautern (fixtures from [OpenLigaDB](https://www.openligadb.de)) the stadium's floodlights, flags and a red-and-white shield appear
-- **Aircraft**: a C-17 (every 2 minutes) and a C-5 (every 3 minutes) cross from left to right with blinking beacons and strobes
+- **Aircraft on approach**: a C-17 (every 2 minutes) and a C-5 (every 3 minutes) come in from the upper left and descend to the right, gear and landing light down, beacons and strobes blinking
 - **Kind to the server and the eyes**: no scripts in the pictures, files cached by the browser, every animation stops under *reduce motion*
 
 | | | |

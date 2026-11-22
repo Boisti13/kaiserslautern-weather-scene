@@ -2,7 +2,7 @@
   const s = hass.states['sensor.overview_sky'];
   const a = (s && s.attributes) || {};
   const t = a.time || 'day', w = a.weather || 'cloudy', dark = t !== 'day';
-  const u = (f) => "url('/local/weather/" + f + "?v=14')";
+  const u = (f) => "url('/local/weather/" + f + "?v=15')";
   const cover = (f, pos) => u(f) + ' ' + (pos || 'center') + ' / cover no-repeat';
   const city = (f) => u(f) + ' center bottom / 100% auto no-repeat';
   const at = (f, x, y, sw, sh) => u(f) + ' calc(' + (x * 100).toFixed(1) + '% + ' + (sw * x - sw / 2).toFixed(1) + 'px) ' + (y * 184 - sh / 2).toFixed(1) + 'px / ' + sw + 'px ' + sh + 'px no-repeat';

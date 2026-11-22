@@ -146,7 +146,7 @@ figcaption code {{ font-size: 12px; background: var(--code); padding: 1px 6px; b
 </style>
 <div class="wrap">
 <header><h1>Kaiserslautern Weather Scenes</h1>
-<p class="lede">Every scene the Overview weather card can paint: 11 weather types from the met.no forecast across day, twilight and night, then the special layers. All of it is animated: clouds drift with the wind, rain and snow slant with it, stars twinkle, lightning flashes, Christmas lights sparkle, the flags wave on match days, and a C-17 (every 2 minutes) and a C-5 (every 3 minutes) from Ramstein cross from left to right with their <b>lights blinking</b>. The view looks south, so the sun rises on the left. Grey code = the sky gradient (sensor state).</p></header>
+<p class="lede">Every scene the Overview weather card can paint: 11 weather types from the met.no forecast across day, twilight and night, then the special layers. All of it is animated: clouds drift with the wind, rain and snow slant with it, stars twinkle, lightning flashes, Christmas lights sparkle, the flags wave on match days, and a C-17 (every 2 minutes) and a C-5 (every 3 minutes) from Ramstein come in on approach from the upper left, gear down, <b>lights blinking</b>. The view looks south, so the sun rises on the left. Grey code = the sky gradient (sensor state).</p></header>
 {body}
 </div>
 <script>
