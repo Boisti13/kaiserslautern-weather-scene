@@ -76,7 +76,7 @@ def card(title, st, note=""):
     w = st["attributes"]["weather"]
     lights = " · windows lit" if st["attributes"]["lights"] else ""
     return (f'<figure class="scene"><div class="card" data-s=\'{json.dumps(st)}\'>'
-            f'<span class="ic">{ICON[w]}</span><span class="nm">Outside · {NAMES[w]}</span>'
+            f'<span class="ic">{ICON[w]}</span><span class="nm">{NAMES[w]}</span>'
             f'<span class="tp">3.4 °C</span><span class="chips">80 % · 1011 hPa · ↓1.2 · ↑5.0</span></div>'
             f'<figcaption><b>{title}</b><code>{st["state"]}</code>{note or lights}</figcaption></figure>')
 

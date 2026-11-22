@@ -22,6 +22,10 @@ All notable changes, newest first.
 - `art/gallery.py` (every scene on one page), `scripts/deploy.sh`,
   `scripts/screenshots.js`.
 
+### Changed
+- The card title shows only the weather ("Cloudy", "Snowy" …) instead of
+  "Outside · Cloudy"; without a forecast it shows the last known weather.
+
 ### Under the hood
 - GitHub check: rebuilds the pictures and the card and compares them with
   the committed files; ruff for the Python scripts.

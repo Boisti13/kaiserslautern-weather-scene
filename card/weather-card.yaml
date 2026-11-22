@@ -10,7 +10,9 @@ cards:
   entity: sensor.virtual_outdoor_temperature
   card_layout: large
   force_icon: true
-  name: '{% set s = states(''weather.forecast_home'') %}Outside{{ '' · '' ~ s.replace(''partlycloudy'', ''partly cloudy'').replace(''-'', '' '') | capitalize if s not in [''unavailable'', ''unknown''] }}'
+  name: '{% set s = states(''weather.forecast_home'') %}{% if s not in [''unavailable'', ''unknown''] %}{{ s.replace(''partlycloudy'', ''partly cloudy'').replace(''-'', '' '') | capitalize }}{% else %}{{
+    {''clear'': ''Clear'', ''partly'': ''Partly cloudy'', ''cloudy'': ''Cloudy'', ''fog'': ''Fog'', ''rain'': ''Rainy'', ''pour'': ''Pouring'', ''hail'': ''Hail'', ''sleet'': ''Snowy rainy'', ''snow'':
+    ''Snowy'', ''lightning'': ''Lightning'', ''storm'': ''Lightning rainy''}.get(state_attr(''sensor.overview_sky'', ''weather''), '''') }}{% endif %}'
   icon: '{% set s = states(''weather.forecast_home'') %}{{ ''mdi:weather-'' ~ {''partlycloudy'': ''partly-cloudy'', ''clear-night'': ''night'', ''exceptional'': ''cloudy-alert''}.get(s, s) if s not in [''unavailable'',
     ''unknown''] else ''mdi:weather-cloudy-alert'' }}'
   tap_action:
